@@ -27,14 +27,22 @@ void yyerror(char *);
         printf ("Achei nome: %s\n", yylval.strval);
         return STRING;
        }
+[0-9\.]+ {
+        for (int i = 0; i < yyleng; i++ )
+          yylval.strval[i] = yytext[i];
 
-[=]     {
-          return IGUAL;
-        }
+        yylval.strval[yyleng] = '\0';
+        printf ("Achei brilho: %s\n", yylval.strval);
+        return FLOAT;
+       }
+[=*/\n] {
+	return *yytext;
+       }
 
 \n   {
          return EOL;
        }
+
 
 [ \t]+ ;
 

@@ -80,3 +80,22 @@ void salvar_imagem(char *nome_do_arquivo, imagem *I) {
   FreeImage_Save(FIF_JPEG, bitmapOut, nome_do_arquivo, JPEG_DEFAULT);
 }
 
+void brilho(imagem *I, int state, float valor) {
+
+	if (state == 0){
+		for (int i=0; i<I->width * I->height; i++) {
+   		I->r[i] = I->r[i]*valor;
+   		I->g[i] = I->g[i]*valor;
+   		I->b[i] = I->b[i]*valor;
+   	}
+  }
+  
+ 	if (state == 1){
+		for (int i=0; i<I->width * I->height; i++) {
+   		I->r[i] = I->r[i]/valor;
+   		I->g[i] = I->g[i]/valor;
+   		I->b[i] = I->b[i]/valor;
+   	}
+  }
+}
+  
