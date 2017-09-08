@@ -13,7 +13,7 @@ int yylex(void);
   float   fval;
 }
 %token <strval> STRING
-%token <ival> VAR IGUAL EOL ASPA MULT DIV
+%token <ival> VAR EOL ASPA
 %token <fval> FLOAT
 %left SOMA
 
