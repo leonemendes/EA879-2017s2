@@ -96,8 +96,11 @@ void brilho(imagem *I, int state, float valor) {
  	if (state == 1){
 		for (int i=0; i<((I->width) * (I->height)); i++) {
    		I->r[i] = I->r[i]/valor;
+   		if(I->r[i] > 255.0) I->r[i] = 255.0;
    		I->g[i] = I->g[i]/valor;
+   		if(I->g[i] > 255.0) I->g[i] = 255.0;
    		I->b[i] = I->b[i]/valor;
+   		if(I->g[i] > 255.0) I->g[i] = 255.0;
    	}
   }
 }
