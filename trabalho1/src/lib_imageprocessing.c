@@ -80,9 +80,8 @@ void salvar_imagem(char *nome_do_arquivo, imagem *I) {
   FreeImage_Save(FIF_JPEG, bitmapOut, nome_do_arquivo, JPEG_DEFAULT);
 }
 
-void brilho(imagem *I, int state, float valor) {
+void brilho(imagem *I, float valor) {
 
-	if (state == 0){
 		for (int i=0; i<((I->width) * (I->height)); i++) {
    		I->r[i] = I->r[i]*valor;
    		if(I->r[i] > 255.0) I->r[i] = 255.0;
@@ -91,18 +90,6 @@ void brilho(imagem *I, int state, float valor) {
    		I->b[i] = I->b[i]*valor;
    		if(I->b[i] > 255.0) I->b[i] = 255.0;
    	}
-  }
-  
- 	if (state == 1){
-		for (int i=0; i<((I->width) * (I->height)); i++) {
-   		I->r[i] = I->r[i]/valor;
-   		if(I->r[i] > 255.0) I->r[i] = 255.0;
-   		I->g[i] = I->g[i]/valor;
-   		if(I->g[i] > 255.0) I->g[i] = 255.0;
-   		I->b[i] = I->b[i]/valor;
-   		if(I->g[i] > 255.0) I->g[i] = 255.0;
-   	}
-  }
 }
 
 void valor_maximo(imagem *I) {

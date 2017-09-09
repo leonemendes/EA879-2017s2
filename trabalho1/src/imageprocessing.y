@@ -37,7 +37,7 @@ EXPRESSAO:
         printf("Copiando %s para %s\n", $3, $1);
         imagem I = abrir_imagem($3);
         printf("Li imagem %d por %d\n", I.width, I.height);
-	brilho(&I, 0, $5);
+	brilho(&I, $5);
 	printf("Dando brilho na imagem\n");
         salvar_imagem($1, &I);
 	printf("Imagem salva.\n");
@@ -47,7 +47,7 @@ EXPRESSAO:
         printf("Copiando %s para %s\n", $3, $1);
         imagem I = abrir_imagem($3);
         printf("Li imagem %d por %d\n", I.width, I.height);
-	brilho(&I, 1, $5);
+	brilho(&I, 1.0/$5);
 	printf("Dando brilho na imagem.\n");
         salvar_imagem($1, &I);
 	printf("Imagem salva.\n");
