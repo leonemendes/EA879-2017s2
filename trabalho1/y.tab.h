@@ -48,7 +48,7 @@ extern int yydebug;
     STRING = 258,
     VAR = 259,
     ASPA = 260,
-    FLOAT = 261,
+    NUM = 261,
     SOMA = 262
   };
 #endif
@@ -56,7 +56,7 @@ extern int yydebug;
 #define STRING 258
 #define VAR 259
 #define ASPA 260
-#define FLOAT 261
+#define NUM 261
 #define SOMA 262
 
 /* Value type.  */

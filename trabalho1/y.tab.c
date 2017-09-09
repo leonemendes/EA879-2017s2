@@ -110,7 +110,7 @@ extern int yydebug;
     STRING = 258,
     VAR = 259,
     ASPA = 260,
-    FLOAT = 261,
+    NUM = 261,
     SOMA = 262
   };
 #endif
@@ -118,7 +118,7 @@ extern int yydebug;
 #define STRING 258
 #define VAR 259
 #define ASPA 260
-#define FLOAT 261
+#define NUM 261
 #define SOMA 262
 
 /* Value type.  */
@@ -447,7 +447,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    23,    23,    24,    27,    28,    35,    44,    53
+       0,    23,    23,    24,    27,    28,    36,    46,    56
 };
 #endif
 
@@ -456,7 +456,7 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "STRING", "VAR", "ASPA", "FLOAT", "SOMA",
+  "$end", "error", "$undefined", "STRING", "VAR", "ASPA", "NUM", "SOMA",
   "'\\n'", "'='", "'*'", "'/'", "'['", "']'", "$accept", "PROGRAMA",
   "EXPRESSAO", YY_NULLPTR
 };
@@ -1226,52 +1226,55 @@ yyreduce:
         imagem I = abrir_imagem((yyvsp[0].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
         salvar_imagem((yyvsp[-2].strval), &I);
+	printf("Imagem salva.\n");
         liberar_imagem(&I);
                           }
-#line 1232 "y.tab.c" /* yacc.c:1646  */
+#line 1233 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 35 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 36 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         printf("Copiando %s para %s\n", (yyvsp[-2].strval), (yyvsp[-4].strval));
         imagem I = abrir_imagem((yyvsp[-2].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
 	brilho(&I, 0, (yyvsp[0].fval));
-	printf("Dando brilho na imagem");
+	printf("Dando brilho na imagem\n");
         salvar_imagem((yyvsp[-4].strval), &I);
+	printf("Imagem salva.\n");
         liberar_imagem(&I);
                           }
-#line 1246 "y.tab.c" /* yacc.c:1646  */
+#line 1248 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 44 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 46 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         printf("Copiando %s para %s\n", (yyvsp[-2].strval), (yyvsp[-4].strval));
         imagem I = abrir_imagem((yyvsp[-2].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
 	brilho(&I, 1, (yyvsp[0].fval));
-	printf("Dando brilho na imagem");
+	printf("Dando brilho na imagem.\n");
         salvar_imagem((yyvsp[-4].strval), &I);
+	printf("Imagem salva.\n");
         liberar_imagem(&I);
                           }
-#line 1260 "y.tab.c" /* yacc.c:1646  */
+#line 1263 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 53 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 56 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
         imagem I = abrir_imagem((yyvsp[-1].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
 	valor_maximo(&I);
         liberar_imagem(&I);
 			  }
-#line 1271 "y.tab.c" /* yacc.c:1646  */
+#line 1274 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1275 "y.tab.c" /* yacc.c:1646  */
+#line 1278 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1499,7 +1502,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 61 "./src/imageprocessing.y" /* yacc.c:1906  */
+#line 64 "./src/imageprocessing.y" /* yacc.c:1906  */
 
 
 void yyerror(char *s) {
