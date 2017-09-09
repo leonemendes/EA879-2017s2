@@ -47,25 +47,17 @@ extern int yydebug;
   {
     STRING = 258,
     VAR = 259,
-    IGUAL = 260,
-    EOL = 261,
-    ASPA = 262,
-    MULT = 263,
-    DIV = 264,
-    FLOAT = 265,
-    SOMA = 266
+    ASPA = 260,
+    FLOAT = 261,
+    SOMA = 262
   };
 #endif
 /* Tokens.  */
 #define STRING 258
 #define VAR 259
-#define IGUAL 260
-#define EOL 261
-#define ASPA 262
-#define MULT 263
-#define DIV 264
-#define FLOAT 265
-#define SOMA 266
+#define ASPA 260
+#define FLOAT 261
+#define SOMA 262
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -78,7 +70,7 @@ union YYSTYPE
   int     ival;
   float   fval;
 
-#line 82 "y.tab.h" /* yacc.c:1909  */
+#line 74 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

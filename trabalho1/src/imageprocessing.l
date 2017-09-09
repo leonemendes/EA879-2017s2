@@ -35,14 +35,9 @@ void yyerror(char *);
         printf ("Achei brilho: %s\n", yylval.strval);
         return FLOAT;
        }
-[=*/\n] {
+[\[\]=*/\n] {
 	return *yytext;
        }
-
-\n   {
-         return EOL;
-       }
-
 
 [ \t]+ ;
 

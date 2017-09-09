@@ -83,7 +83,7 @@ void salvar_imagem(char *nome_do_arquivo, imagem *I) {
 void brilho(imagem *I, int state, float valor) {
 
 	if (state == 0){
-		for (int i=0; i<I->width * I->height; i++) {
+		for (int i=0; i<((I->width) * (I->height)); i++) {
    		I->r[i] = I->r[i]*valor;
    		I->g[i] = I->g[i]*valor;
    		I->b[i] = I->b[i]*valor;
@@ -91,11 +91,22 @@ void brilho(imagem *I, int state, float valor) {
   }
   
  	if (state == 1){
-		for (int i=0; i<I->width * I->height; i++) {
+		for (int i=0; i<((I->width) * (I->height)); i++) {
    		I->r[i] = I->r[i]/valor;
    		I->g[i] = I->g[i]/valor;
    		I->b[i] = I->b[i]/valor;
    	}
   }
+}
+
+void valor_maximo(imagem *I) {
+float R = 0.0, G = 0.0, B = 0.0;
+
+		for (int i=0; i<((I->width) * (I->height)); i++) {
+			if (I->r[i] >= R) R = I->r[i];
+			if (I->g[i] >= G) G = I->r[i];
+			if (I->b[i] >= B) B = I->r[i];
+   	}
+   	printf("Valor máximo: R = %f, G = %f, B = %f\n", R, G, B);
 }
   

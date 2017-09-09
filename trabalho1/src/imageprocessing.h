@@ -11,6 +11,7 @@ typedef struct {
 imagem abrir_imagem(char *nome_do_arquivo);
 void salvar_imagem(char *nome_do_arquivo, imagem *I);
 void liberar_imagem(imagem *i);
-void brilho(imagem *I, int state, float valor); 
+void brilho(imagem *i, int state, float valor);
+void valor_maximo(imagem *i); 
 
 #endif

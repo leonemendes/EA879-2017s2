@@ -375,8 +375,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 9
-#define YY_END_OF_BUFFER 10
+#define YY_NUM_RULES 8
+#define YY_END_OF_BUFFER 9
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -386,8 +386,8 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[16] =
     {   0,
-        0,    0,   10,    8,    7,    5,    2,    5,    3,    3,
-        1,    7,    3,    3,    0
+        0,    0,    9,    7,    6,    5,    2,    5,    3,    3,
+        1,    6,    3,    3,    0
     } ;
 
 static yyconst YY_CHAR yy_ec[256] =
@@ -401,7 +401,7 @@ static yyconst YY_CHAR yy_ec[256] =
         5,    1,    1,    1,    7,    7,    7,    7,    7,    7,
         7,    7,    7,    7,    7,    7,    7,    7,    7,    7,
         7,    7,    7,    7,    7,    7,    7,    7,    7,    7,
-        1,    1,    1,    1,    1,    1,    8,    8,    8,    8,
+        5,    1,    5,    1,    1,    1,    8,    8,    8,    8,
 
         8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
         8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
@@ -798,30 +798,22 @@ YY_RULE_SETUP
        }
 	YY_BREAK
 case 6:
-/* rule 6 can match eol */
 YY_RULE_SETUP
 #line 42 "./src/imageprocessing.l"
-{
-         return EOL;
-       }
+;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 47 "./src/imageprocessing.l"
-;
-	YY_BREAK
-case 8:
-YY_RULE_SETUP
-#line 49 "./src/imageprocessing.l"
+#line 44 "./src/imageprocessing.l"
 {printf("**%s**\n", yytext);
 yyerror("Token nao reconhecido!\n");}
 	YY_BREAK
-case 9:
+case 8:
 YY_RULE_SETUP
-#line 52 "./src/imageprocessing.l"
+#line 47 "./src/imageprocessing.l"
 ECHO;
 	YY_BREAK
-#line 825 "lex.yy.c"
+#line 817 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1822,7 +1814,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 52 "./src/imageprocessing.l"
+#line 47 "./src/imageprocessing.l"
 
 
 
