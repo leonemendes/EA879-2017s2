@@ -1,6 +1,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "imageprocessing.h"
 
@@ -93,13 +94,15 @@ void brilho(imagem *I, float valor) {
 }
 
 void valor_maximo(imagem *I) {
-float R = 0.0, G = 0.0, B = 0.0;
+float R = 0.0, G = 0.0, B = 0.0, max = 0.0;
 
 		for (int i=0; i<((I->width) * (I->height)); i++) {
-			if (I->r[i] >= R) R = I->r[i];
-			if (I->g[i] >= G) G = I->r[i];
-			if (I->b[i] >= B) B = I->r[i];
+			R = I->r[i];
+			G = I->r[i];
+			B = I->r[i];
+			if (sqrt(R*R+G*G+B*B) > max) max = sqrt(R*R+G*G+B*B);
    	}
-   	printf("Valor máximo: R = %f, G = %f, B = %f\n", R, G, B);
+	
+   	printf("Valor máximo: R = %f, G = %f, B = %f, MAX = %f\n", R, G, B, max);
 }
   

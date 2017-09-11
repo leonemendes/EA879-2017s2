@@ -1238,7 +1238,7 @@ yyreduce:
         printf("Copiando %s para %s\n", (yyvsp[-2].strval), (yyvsp[-4].strval));
         imagem I = abrir_imagem((yyvsp[-2].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
-	brilho(&I, 0, (yyvsp[0].fval));
+	brilho(&I, (yyvsp[0].fval));
 	printf("Dando brilho na imagem\n");
         salvar_imagem((yyvsp[-4].strval), &I);
 	printf("Imagem salva.\n");
@@ -1253,7 +1253,7 @@ yyreduce:
         printf("Copiando %s para %s\n", (yyvsp[-2].strval), (yyvsp[-4].strval));
         imagem I = abrir_imagem((yyvsp[-2].strval));
         printf("Li imagem %d por %d\n", I.width, I.height);
-	brilho(&I, 1, (yyvsp[0].fval));
+	brilho(&I, 1.0/(yyvsp[0].fval));
 	printf("Dando brilho na imagem.\n");
         salvar_imagem((yyvsp[-4].strval), &I);
 	printf("Imagem salva.\n");
