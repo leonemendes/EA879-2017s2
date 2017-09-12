@@ -94,15 +94,21 @@ void brilho(imagem *I, float valor) {
 }
 
 void valor_maximo(imagem *I) {
-float R = 0.0, G = 0.0, B = 0.0, max = 0.0;
+float R = 0.0, G = 0.0, B = 0.0, Rmax = 0.0, Gmax = 0.0, Bmax = 0.0, max = 0.0;
 
 		for (int i=0; i<((I->width) * (I->height)); i++) {
 			R = I->r[i];
-			G = I->r[i];
-			B = I->r[i];
-			if (sqrt(R*R+G*G+B*B) > max) max = sqrt(R*R+G*G+B*B);
+			G = I->g[i];
+			B = I->b[i];
+			
+			if (sqrt(R*R+G*G+B*B) > max) {
+				max = sqrt(R*R+G*G+B*B);
+				Rmax = R;
+				Gmax = G;
+				Bmax = B;
+			}
    	}
 	
-   	printf("Valor máximo: R = %f, G = %f, B = %f, MAX = %f\n", R, G, B, max);
+   	printf("Valor máximo: R = %f, G = %f, B = %f, MAX = %f\n", Rmax, Gmax, Bmax, max);
 }
   
